@@ -182,12 +182,12 @@
 									</div>
 									<div class="ico-sales-status mt30 mb-30 o-hidden">
 										<div class="pull-left">
-											<h3 class="dollar-earning">$1,500,000</h3>
+											<h3 class="dollar-earning" id=total_usd>...</h3>
 											<p style="padding-left:10px">Worth of LTR tokens</p>
 										</div>
 										<div class="pull-right">
-											<h3 class="btc-earning">196 <span>BTC</span></h3>
-											<p>BTC Raised</p>
+											<h3 class="btc-earning" id=total_eth>... <span>ETH</span></h3>
+											<p>ETH Raised</p>
 										</div>
 									</div>
 									<div class="ico-progress">
@@ -197,7 +197,7 @@
 			                           </ul>
 			                           <!-- skill strength -->
 			                           <div class="current-progress">
-			                              <div class="progress-bar has-gradient" style="width: 5%"></div>
+			                              <div class="progress-bar has-gradient" style="width: 1%" id=total_percent></div>
 			                           </div>
 			                           <span class="pull-left">Softcap in 180 days</span>
 			                           <span class="pull-right">LTR Hardcap</span>
@@ -240,7 +240,46 @@
 	<!-- ======================================= 
     ==End main header section==  
     =======================================-->
-
+	<script>
+		var eth=0;
+		function getTotalBalance(){
+			var xmlhttp = new XMLHttpRequest();
+			var url = "https://api.etherscan.io/api?module=account&action=balance&address=0xe26d6ac43432e3aeeea5fce1a523649130d1bd23&tag=latest&apikey=T8NVZH5T23EMVZ4DZXUBGXJ3ZGGWMYI4Y4";
+			
+			xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+					var rs=myArr.result;
+					rs=rs/1000000000000000000;
+					eth=rs;
+					$("#total_eth").html(eth.toFixed(1)+"<span>ETH</span>");
+					getEthPrice(eth);
+				}
+			};
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+		}
+		function getEthPrice(eth){
+			var xmlhttp = new XMLHttpRequest();
+			var url = "https://api.coinmarketcap.com/v2/ticker/1027/";
+			
+			xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var rs = JSON.parse(this.responseText);
+					var price=rs.data.quotes.USD.price;
+					var total_usd=eth*price;
+					var percent=(total_usd*100)/10000000;
+					if (percent<1) percent=1;
+					$("#total_percent").css("width",percent+"%");
+					$("#total_usd").html(total_usd.toFixed(2)+" usd");
+				}
+			};
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+		}
+		getTotalBalance();
+	</script>
+	
     <!-- ======================================= 
     ==Start Our services section==  
     =======================================-->
@@ -675,7 +714,7 @@
 
 	<!-- ======================================= 
     ==Start team section==  
-    =======================================
+    =======================================-->
 
     <section class="team features" id="team">
     	<div class="title-box">
@@ -813,7 +852,7 @@
     		</div>
     	</div>
     </section>
-	======================================= 
+	<!--======================================= 
     ==End team section==  
     =======================================-->
 
