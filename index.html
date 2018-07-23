@@ -28,6 +28,11 @@
 
 <link href="css/style.css" rel="stylesheet">
 <link href="css/color2.css" rel="stylesheet">
+<link rel="stylesheet" href="js/flipclock.css">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+		<script src="js/flipclock.js"></script>
 </head>
 <script>
 	function changelg(type){
@@ -174,11 +179,11 @@
 
 							<div class="content">
 								<div class="conuter-header">
-									<h3 class="text-center">TOKEN SALE ENDS IN</h3>
+									<h3 class="text-center">50% SALE OFF ENDS IN</h3>
 								</div>
 								<div class="counterdown-content">
-									<div class="clock-wrapper">
-										<div class="clock"></div>
+									<div class="clock-wrapper">										
+										<div class="clock h4"></div>
 									</div>
 									<div class="ico-sales-status mt30 mb-30 o-hidden">
 										<div class="pull-left">
@@ -240,6 +245,22 @@
 	<!-- ======================================= 
     ==End main header section==  
     =======================================-->
+	<script type="text/javascript">
+			// Grab the current date
+				var currentDate = new Date();
+
+				// Set some date in the future. In this case, it's always Jan 1
+				var futureDate  = new Date(2018, 7, 31);
+
+				// Calculate the difference in seconds between the future and current date
+				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+				var diff_days=futureDate.getDate()-currentDate.getDate();				
+				var counter = $('.clock').FlipClock(diff, {
+				clockFace: 'TwentyFourHourClock',
+				countdown: true
+				});
+				
+	</script>
 	<script>
 		var eth=0;
 		function getTotalBalance(){
@@ -942,7 +963,7 @@
 
 		<script src="js/jquery.vide.min.js"></script>
 		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/flipclock.min.js"></script>
+		<!--<script src="js/flipclock.min.js"></script>->
 
 		<!-- HighCharts -->
         <script src="js/highcharts.js"></script>

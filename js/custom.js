@@ -30,12 +30,12 @@ $(document).ready(function() {
         return false;
     });
 
-    var clock = $('.clock').FlipClock(3600 * 24 * 70, {
-        clockFace: 'DailyCounter',
-        countdown: true,
-		language:'vn'
-    });
-	clock.loadLanguage("vn");
+    //var clock = $('.clock').FlipClock(3600 * 24 * 70, {
+        //clockFace: 'DailyCounter',
+        //countdown: true,
+		//language:'vn'
+    //});
+	//clock.loadLanguage("vn");
     $('.fade-left').waypoint(function() {
         $('.fade-left').addClass('animated fadeInLeft');
     }, {
