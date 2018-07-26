@@ -244,7 +244,8 @@
 		var eth=0;
 		function getTotalBalance(){
 			var xmlhttp = new XMLHttpRequest();
-			var url = "https://api.etherscan.io/api?module=account&action=balance&address=0xe26d6ac43432e3aeeea5fce1a523649130d1bd23&tag=latest&apikey=T8NVZH5T23EMVZ4DZXUBGXJ3ZGGWMYI4Y4";
+			var address_eth_ico="0xF43dB4c9716c68D295CA9a625eC2302A16D52459";
+			var url = "https://api.etherscan.io/api?module=account&action=balance&address="+address_eth_ico+"&tag=latest&apikey=T8NVZH5T23EMVZ4DZXUBGXJ3ZGGWMYI4Y4";
 			
 			xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -375,7 +376,7 @@
 	            </div>
 	            <div class="col-md-6">
 	                <div class="money-exchange-left" >
-	                	<img style="max-height: 798px" class="center-block" src="images/banner.png" alt="Phone">
+	                	<img style="max-height: 798px" class="center-block img-responsive" src="images/banner.png" alt="Phone">
 	                </div>
 	            </div>
 	        </div>
@@ -535,7 +536,7 @@
 	                                <span class="icon flaticon-cogwheel" style="font-weight: 600;"></span>
 	                            </div>
 	                            <h3><a href="#">Super easy to play and use</a></h3>
-	                            <div class="text">easy register account and buy lottery buy coin (btc, eth, cpt, prv, ltr token)</div>
+	                            <div class="text">easy register account and buy lottery buy coin (btc, eth, ltr token)</div>
 	                        </div>
 	                    </div>
 	                    
@@ -782,7 +783,7 @@
                             <h3>Gianmarco Tonini</h3>
 							<h6>Advisor</h6>
                         </div>
-                        <p class="mb20">Analysis and Monitoring Expert,one of the italian's biggest expert in analytics</p>
+                        <p class="mb20">Passionate about Data and Marketing, in the last two years Gianmarco has been focused on creating actionable data-driven digital Strategies for ICOs and Cryptocurrencies working as CIO for the best European Growth Hacking Company</p>
                         <ul class="social-icons list-inline list-unstyled">
                                                         
                             <li><a href="https://www.linkedin.com/in/gianmarco-tonini/" target="blank"><i class="fa fa-linkedin icon-bordered icon-primary icon-xs"></i></a></li>
